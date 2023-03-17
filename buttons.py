@@ -1,5 +1,5 @@
 import tkinter as tk
-from lib import add_to_exp, evaluate_exp, clear_input_field, clear_last_char
+from lib import add_to_exp, evaluate_exp, evaluate_square_root, clear_input_field, clear_last_char
 import const as c
 
 
@@ -39,8 +39,14 @@ class Buttons:
                             activebackground=c.symbols_active_bg, activeforeground=c.symbols_active_fg)
             btn.grid(row=i[1], column=i[2], sticky="nsew")
 
+        # create square root button
+        btn_square_root = tk.Button(root, text="√", command=evaluate_square_root,
+                                    font=c.btn_font, bg=c.input_bg, fg=c.symbols_fg, height=2, borderwidth=0,
+                                    activebackground=c.symbols_active_bg, activeforeground=c.symbols_active_fg)
+        btn_square_root.grid(row=7, column=3, columnspan=1, sticky="nsew")
+
         # create equal button
-        btn_equals = tk.Button(root, text="=", command=evaluate_exp,
-                               font=c.btn_font, bg=c.input_bg, fg=c.equals_fg, height=2, borderwidth=0,
-                               activebackground=c.equals_active_bg, activeforeground=c.equals_active_fg)
-        btn_equals.grid(row=7, column=3, sticky="nsew")
+        btn_clear_input = tk.Button(root, text="=", command=evaluate_exp,
+                                    font=c.btn_font, bg=c.light_btn_bg, fg=c.clear_fg, height=2, borderwidth=0,
+                                    activebackground=c.equals_active_bg, activeforeground=c.equals_active_fg)
+        btn_clear_input.grid(row=8, column=0, columnspan=4, sticky="nsew")

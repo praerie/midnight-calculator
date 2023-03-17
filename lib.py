@@ -28,15 +28,49 @@ def evaluate_exp():
     else:
         try:
             exp = str(eval(exp))
-
-            if exp.endswith(".0"):
-                exp = round(float(exp))
+            exp = clear_decimal()
 
             gui.Calculator.update_input_field(gui.Calculator, c.delete, c.end)
             gui.Calculator.update_input_field(gui.Calculator, c.insert, exp)
         except:
             clear_input_field()
             gui.Calculator.update_input_field(gui.Calculator, c.insert, c.error_msg)
+
+
+def evaluate_square_root():
+    """calculates square root of a number or expression"""
+    global exp
+
+    if exp == None:
+        gui.Calculator.update_input_field(gui.Calculator, c.delete, c.end)
+        gui.Calculator.update_input_field(gui.Calculator, c.insert, exp)
+    else:
+        try:
+            if "." in exp:
+                exp = math.sqrt(float(exp))
+            else:
+                exp = math.sqrt(int(exp))
+
+            exp = clear_decimal()
+
+            gui.Calculator.update_input_field(gui.Calculator, c.delete, c.end)
+            gui.Calculator.update_input_field(gui.Calculator, c.insert, exp)
+
+            exp = str(exp)
+        except:
+            clear_input_field()
+            gui.Calculator.update_input_field(gui.Calculator, c.insert, c.error_msg)
+
+
+def clear_decimal():
+    """converts 'n.0' to 'n' to remove unnecessary decimal"""
+    global exp
+
+    if str(exp).endswith(".0"):
+        exp = round(float(exp))
+        return exp
+    else:
+        return exp
 
 
 def remove_leading_zero():

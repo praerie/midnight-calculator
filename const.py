@@ -1,5 +1,5 @@
 title = "Midnight Calculator"
-window_size = "384x490"
+window_size = "384x547"
 
 insert = "insert"
 delete = "delete"
