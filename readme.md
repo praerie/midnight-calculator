@@ -6,6 +6,8 @@ A dark mode GUI calculator created with Tkinter in Python.
     <img src="https://i.imgur.com/UZTSVZ7.gif" alt="demo of calculator GUI">
 </picture>
 
+<h6><em>Note: Unfortunately MacOS takes the "midnight" out of my "midnight calculator."</em></h6>
+
 ## Motivation
 
 More Python practice and an exploration into graphical user interfaces 
